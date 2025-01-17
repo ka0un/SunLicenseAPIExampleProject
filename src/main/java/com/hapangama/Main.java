@@ -8,7 +8,7 @@ public class Main {
 
         // Creating an instance of SunLicenseAPI with a hardcoded license key, product ID, product version, and API URL.
         // Replace the placeholder values with your actual license key, product ID, and API URL.
-        SunLicenseAPI api = SunLicenseAPI.getLicense("6AQB-N92G-K038-JZ02-V0UD", 1203, "1.0.0", "http://localhost:8080");
+        SunLicenseAPI api = SunLicenseAPI.getLicense("ABCD-ABCS-AAAA-AAAA-AAAA", 1, "1.0.0", "http://localhost:8080/");
 
         try {
             // Validate the license. This method will throw an IOException if the license is invalid.
