@@ -1,14 +1,20 @@
 package com.hapangama;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.UnknownHostException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         // Example of how to use SunLicenseAPI in a simple application
 
         // Creating an instance of SunLicenseAPI with a hardcoded license key, product ID, product version, and API URL.
         // Replace the placeholder values with your actual license key, product ID, and API URL.
-        SunLicenseAPI api = SunLicenseAPI.getLicense("ABCD-ABCS-AAAA-AAAA-AAAA", 1, "1.0.0", "http://localhost:8080/");
+        SunLicenseAPI api = SunLicenseAPI.getLicense("FE72-URFX-4RKW-M38T-0ARO", 602, "1.0.0", "http://localhost:8080");
 
         try {
             // Validate the license. This method will throw an IOException if the license is invalid.
@@ -40,5 +46,21 @@ public class Main {
         //     System.out.println("Error: " + e.getMessage());
         //     System.exit(1); // Exit the program with a non-zero status code indicating an error.
         // }
+
+        // ================== Optional Configuration ==================
+
+        // You can force the license validation to use given IP address instead of the request IP address.
+
+        // Get the public IP address of the machine (optional)
+//        HttpClient client = HttpClient.newHttpClient();
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create("https://api.ipify.org")) // IP service
+//                .GET()
+//                .build();
+//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//        String publicIP = response.body();
+//
+//        // Manually set the public IP address (optional)
+//        api.setIp(publicIP);
     }
 }
